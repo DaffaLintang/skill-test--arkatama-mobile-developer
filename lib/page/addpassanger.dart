@@ -10,7 +10,6 @@ class AddPassangerPage extends StatefulWidget {
 
 class _AddPassangerPageState extends State<AddPassangerPage> {
   final List<String> travelItems = ['Malang', 'Bali'];
-  final _formKey = GlobalKey<FormState>();
 
   String? selectedValue;
   @override
@@ -44,7 +43,7 @@ class _AddPassangerPageState extends State<AddPassangerPage> {
             ),
 
             Padding(
-              padding: const EdgeInsets.only(top: 180.0),
+              padding: const EdgeInsets.only(top: 100.0),
               child: Container(
                 width: double.infinity,
                 decoration: BoxDecoration(
@@ -121,9 +120,7 @@ class _AddPassangerPageState extends State<AddPassangerPage> {
                           }
                           return null;
                         },
-                        onChanged: (value) {
-                          //Do something when selected item is changed.
-                        },
+                        onChanged: (value) {},
                         onSaved: (value) {
                           selectedValue = value.toString();
                         },
@@ -146,40 +143,92 @@ class _AddPassangerPageState extends State<AddPassangerPage> {
                           padding: EdgeInsets.symmetric(horizontal: 16),
                         ),
                       ),
-                      const SizedBox(height: 30),
-                      TextButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            _formKey.currentState!.save();
-                          }
-                        },
-                        child: const Text('Submit Button'),
-                      ),
-
                       SizedBox(height: 20),
-                      SizedBox(
-                        width: double.infinity,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromRGBO(21, 114, 211, 1),
-                            padding: EdgeInsets.symmetric(
-                              horizontal: 20,
-                              vertical: 20,
-                            ),
-                            shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(10),
+                      Text("Pickup Location*"),
+                      SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: const Color.fromARGB(255, 224, 224, 224),
                             ),
                           ),
-                          child: Text(
-                            "Login",
-                            style: TextStyle(
-                              color: Colors.white,
-                              fontWeight: FontWeight.w700,
-                              fontSize: 16,
-                            ),
-                          ),
+                          labelText: "Pickup Location",
+                          border: OutlineInputBorder(),
                         ),
+                      ),
+                      SizedBox(height: 20),
+                      Text("Whatsapp Number"),
+                      SizedBox(height: 10),
+                      TextField(
+                        decoration: InputDecoration(
+                          enabledBorder: OutlineInputBorder(
+                            borderSide: BorderSide(
+                              color: const Color.fromARGB(255, 224, 224, 224),
+                            ),
+                          ),
+                          labelText: "Whatsapp Number",
+                          border: OutlineInputBorder(),
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      Text(
+                        "Writing format without country code, must use active cellphone number",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w400,
+                          color: Color.fromRGBO(188, 188, 188, 1),
+                        ),
+                      ),
+                      SizedBox(height: 20),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.white,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 40,
+                                vertical: 25,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4),
+                                side: BorderSide(
+                                  color: Color.fromRGBO(195, 211, 226, 1),
+                                  width: 2,
+                                ),
+                              ),
+                            ),
+                            child: Text(
+                              "Cancel",
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                          ElevatedButton(
+                            onPressed: () {},
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Color.fromRGBO(33, 33, 67, 1),
+                              padding: EdgeInsets.symmetric(
+                                horizontal: 40,
+                                vertical: 25,
+                              ),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(4),
+                              ),
+                            ),
+                            child: Text(
+                              "Add Passenger",
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.w500,
+                                fontSize: 16,
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                       SizedBox(height: 100),
                     ],
