@@ -1,5 +1,7 @@
+import 'package:akartama/page/login.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 class AddPassangerPage extends StatefulWidget {
   const AddPassangerPage({super.key});
@@ -41,7 +43,29 @@ class _AddPassangerPageState extends State<AddPassangerPage> {
                 ),
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.only(top: 40.0, left: 20),
+              child: GestureDetector(
+                onTap: () {
+                  Get.to(LoginPage());
+                },
+                child: Container(
+                  width: 30,
+                  height: 30,
+                  decoration: BoxDecoration(
+                    color: Color.fromRGBO(255, 255, 255, 0.7),
+                    borderRadius: BorderRadius.circular(5),
+                  ),
 
+                  child: Center(
+                    child: Transform.translate(
+                      offset: Offset(2, 0),
+                      child: Icon(Icons.arrow_back_ios, size: 15),
+                    ),
+                  ),
+                ),
+              ),
+            ),
             Padding(
               padding: const EdgeInsets.only(top: 100.0),
               child: Container(
